@@ -314,6 +314,19 @@ void readBMPColorHeader(){
 	printElement("unused",width);
 	printElement(bmp.bmp_color_header.unused,width);
 }
+void negaitve(){
+	uint8_t R,G,B,A;
+	BMP bmp("test.bmp");
+	BMP bmp2(bmp.bmp_info_header.width,bmp.bmp_info_header.height);
+	for(uint32_t i=0; i<bmp.bmp_info_header.width; i++){
+		for(uint32_t j=0; j<bmp.bmp_info_header.height;j++){
+			bmp.read_pixel(i,j,B,G,R,A);
+			bmp2.set_pixel(i,j,255-B,255-G,255-R,A);
+		}
+		
+	}
+	bmp2.write("testNegative.bmp");
+}
 
 int main(int argc, char** argv) {
     cout<<" File header"<<endl;
@@ -328,5 +341,6 @@ int main(int argc, char** argv) {
 
 
     cout<<"preparing negative"<<endl;
+    negative();
     return 0;
 }
