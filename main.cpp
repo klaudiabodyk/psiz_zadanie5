@@ -246,14 +246,19 @@ void readFileHeader(){
 	const int width = 10;
 	printElement("File type",width);
 	printElement(bmp.file_header.file_type,width);
+    cout<<endl;
 	printElement("File size",width);
 	printElement(bmp.file_header.file_size,width);
+    cout<<endl;
 	printElement("Not used",width);
 	printElement(bmp.file_header.reserved1,width);
+    cout<<endl;
 	printElement("Not used",width);
 	printElement(bmp.file_header.reserved2,width);
+    cout<<endl;
 	printElement("Offset",width);
 	printElement(bmp.file_header.offset_data,width);
+    cout<<endl;
 }
 
 void readBMPInfoHeader(){
@@ -314,7 +319,7 @@ void readBMPColorHeader(){
 	printElement("unused",width);
 	printElement(bmp.bmp_color_header.unused,width);
 }
-void negaitve(){
+void negative(){
 	uint8_t R,G,B,A;
 	BMP bmp("test.bmp");
 	BMP bmp2(bmp.bmp_info_header.width,bmp.bmp_info_header.height);
