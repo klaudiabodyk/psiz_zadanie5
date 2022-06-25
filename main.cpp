@@ -29,14 +29,10 @@ struct BMPColorHeader {
     uint32_t unused[16]{ 0 };
 };
 
-struct BMPColorHeader {
-    uint32_t red_mask{ 0x00ff0000 };
-    uint32_t green_mask{ 0x0000ff00 };
-    uint32_t blue_mask{ 0x000000ff };
-    uint32_t alpha_mask{ 0xff000000 };
-    uint32_t color_space_type{ 0x73524742 }; 
-    uint32_t unused[16]{ 0 };
-};
+template<typename T> void printElement(T t,const int& width){
+    const char separator =' ';
+        cout<< left << setw(width) << setfill(separator) << t;
+    }
 
 void readFileHeader(){
 	BMP bmp("test.bmp");
