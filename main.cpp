@@ -1,3 +1,12 @@
+#pragma once
+#include <fstream>
+#include <vector>
+#include <stdexcept>
+#include <iostream>
+#include <iomanip>
+#pragma pack(push, 1)
+using namespace std;
+
 struct  BMPFileHeader{
     uint16_t file_type{0x4D42};
     uint32_t file_size{0};
@@ -304,4 +313,20 @@ void readBMPColorHeader(){
 	cout<<endl;
 	printElement("unused",width);
 	printElement(bmp.bmp_color_header.unused,width);
+}
+
+int main(int argc, char** argv) {
+    cout<<" File header"<<endl;
+    readFileHeader();
+    cout<<"\n\n\n";
+    cout<<" BMP info header"<<endl;
+    readBMPInfoHeader();
+    cout<<"\n\n\n";
+    cout<<" color header"<<endl;
+    readBMPColorHeader();
+    cout<<"\n\n\n";
+
+
+    cout<<"preparing negative"<<endl;
+    return 0;
 }
